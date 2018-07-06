@@ -27,23 +27,37 @@
 
         <h2 class="center">Toy Department</h2>
 
-        @foreach(Product product in Model)
+        @foreach (Product product in Model)
         {
-        <div class="tile">
-            @product.Name <br />
-            @product.Price <br />
-            @product.Manufacturer <br />
-        </div>
+            <div class="tile">
+
+                <h1>
+                    @product.Name
+                    @if (product.IsTopSeller)
+                    {
+                        <p1>BEST SELLER!</p1>
+                    }<br />
+                </h1>
+                <h2>by @product.Manufacturer <br /></h2>
+                <h3>@product.Price <br /></h3>
+                <h4><b>Weight </b> <p2>@product.WeightIbLbs lbs </p2><br /></h4>
+                <h5>
+                    @if (product.AverageRating == 1)
+                    {<img src="1-star.png" />}
+                    else if (product.AverageRating == 2)
+                    {<img src="2-star.png" /> }
+                    else if (product.AverageRating == 3)
+                    {<img src="3-star.png" /> }
+                    else if (product.AverageRating == 4)
+                    {<img src="4-star.png" /> }
+                    else if (product.AverageRating == 5)
+                    {<img src="5-star.png" /> }
+                    <br />
+                </h5>
+            </div>
         }
 
-  
+
     </section>
 </body>
 </html>
-@*<tr><td>@product.ImageName</td></tr>
-    <tr><td>@product.Name</td></tr>
-    <tr><td>@product.IsTopSeller</td></tr>
-    <tr><td>@product.Manufacturer</td></tr>
-    <tr><td>@product.Price</td></tr>
-    <tr><td>@product.WeightIbLbs</td></tr>
-    <tr><td>@product.AverageRating</td></tr>*@

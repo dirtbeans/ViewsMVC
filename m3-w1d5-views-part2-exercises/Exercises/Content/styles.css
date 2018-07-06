@@ -60,9 +60,41 @@ section {
 }
 
 /* Individual Page Styles */
-table2{
-    text-align:right;
+table2 {
+    text-align: right;
 }
-.tile{
+
+.tile {
     display: inline;
+    float: left;
+    margin: 25px 50px 25px 50px;
+}
+
+h1 {
+    font-size: medium;
+}
+h2 {
+    font-size: small;
+}
+
+h3 {
+    color: red;
+    font-size: small;
+}
+
+h3::before {
+        content: "$";
+}
+h4 {
+
+}
+h5 {
+   
+}
+p1 {
+    color: red;
+    font-size: small;
+}
+p2 {
+    font-weight: normal;
 }
