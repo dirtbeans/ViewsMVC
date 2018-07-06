@@ -1,0 +1,49 @@
+﻿@using Exercises.Models
+@{
+    //Layout = null;
+}
+
+@model List<Product>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tile</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
+</head>
+<body>
+    <header>
+        <h1>ASP.NET MVC Exercises - Views Part 2: Models</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">List View</a></li>
+            <li><a href="#">Table View</a></li>
+            <li><a href="#">Tile View</a></li>
+        </ul>
+    </nav>
+    <section id="main-content">
+
+        <h2 class="center">Toy Department</h2>
+
+        @foreach(Product product in Model)
+        {
+        <div class="tile">
+            @product.Name <br />
+            @product.Price <br />
+            @product.Manufacturer <br />
+        </div>
+        }
+
+  
+    </section>
+</body>
+</html>
+@*<tr><td>@product.ImageName</td></tr>
+    <tr><td>@product.Name</td></tr>
+    <tr><td>@product.IsTopSeller</td></tr>
+    <tr><td>@product.Manufacturer</td></tr>
+    <tr><td>@product.Price</td></tr>
+    <tr><td>@product.WeightIbLbs</td></tr>
+    <tr><td>@product.AverageRating</td></tr>*@

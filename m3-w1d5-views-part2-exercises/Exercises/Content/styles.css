@@ -60,3 +60,9 @@ section {
 }
 
 /* Individual Page Styles */
+table2{
+    text-align:right;
+}
+.tile{
+    display: inline;
+}
