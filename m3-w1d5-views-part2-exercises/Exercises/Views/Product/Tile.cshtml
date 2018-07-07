@@ -27,11 +27,10 @@
 
         <h2 class="toy-dept">Toy Department</h2>
 
-        @foreach (var product in Model)
+        @foreach (Product product in Model)
         {
             var toyImage = "/Content/images/" + product.ImageName;
             var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png";
-
 
             <div class="tile">
                 <h1>
@@ -43,11 +42,11 @@
                     }
                 </h1>
                 <h2>by @product.Manufacturer <br /></h2>
-                <h3>@product.Price </h3>
+                <h3>@product.Price.ToString("C") </h3>
                 <h4><b>Weight </b> <p2>@product.WeightInLbs lbs </p2><br /></h4>
                 <h5>
                     @if (product.AverageRating == 1)
-                    {<img class="toy-rating" src=@starImage />}
+                    {<img class="toy-rating" src=@starImage />}      @*if statement is only returning rating of five, defaulting to last value. I tried a while loop with breaks for each and that did the same thing, so we can try to tackle this Sunday?*@
                     else if (product.AverageRating == 2)
                     {<img class="toy-rating" src=@starImage /> }
                     else if (product.AverageRating == 3)

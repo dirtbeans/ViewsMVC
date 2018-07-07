@@ -23,20 +23,20 @@
             <li><a href="#">Tile View</a></li>
         </ul>
     </nav>    <section id="main-content">
-        <h2 class="toy-dept">Toy Department</h2>
+        <h2 class="toy-dept">Toy Department</h2> @*Overall Code Note!! - is there anyway to put all of this into one foreach loop maybe? this one seems longer, but may be necessary due to table*@
         <table>
             <tr>
-                <td></td>
+                <td></td> @*used to place image one place over to lineup with appropriate details*@
 
-                @foreach (var productImage in Model)
+                @foreach (Product product in Model)
                 {
-                    var toyImage = "/Content/images/" + productImage.ImageName;
+                    var toyImage = "/Content/images/" + product.ImageName;  @*variable assignment for image file, we could also directly access the file I believe, but this worked*@
                     <td>
                         <img class="toy-image" src=@toyImage />
 
-                        @if (productImage.IsTopSeller)
+                        @if (product.IsTopSeller)
                         {
-                            <br /><span class="best-seller">BEST SELLER!</span>
+                            <br /><span class="best-seller">BEST SELLER!</span> 
                         }
                     </td>
                 }
@@ -51,7 +51,7 @@
 
             <tr>
                 <td>Rating</td>
-                @foreach (var product in Model)
+                @foreach (Product product in Model)
                 {
                     var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png";
                     <td><img class="toy-rating" src=@starImage /></td>
