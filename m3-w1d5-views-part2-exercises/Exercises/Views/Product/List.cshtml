@@ -25,7 +25,7 @@
         </ul>
     </nav>
     <section id="main-content">
-        <h2 class="center">Toy Department</h2>
+        <h2 class="toy-dept">Toy Department</h2>
         <ul>
             @foreach (Product product in Model)
     {
@@ -34,7 +34,7 @@
         <li detail="product:@product;">@product.IsTopSeller</li>
         <li detail="product:@product;">@product.Manufacturer</li>
         <li detail="product:@product;">@product.Price</li>
-        <li detail="product:@product;">@product.WeightIbLbs</li>
+        <li detail="product:@product;">@product.WeightInLbs</li>
         <li detail="product:@product;">@product.AverageRating</li>
 }
         </ul>

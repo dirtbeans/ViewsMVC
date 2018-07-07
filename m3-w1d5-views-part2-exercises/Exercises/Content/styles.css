@@ -60,14 +60,39 @@ section {
 }
 
 /* Individual Page Styles */
-table2 {
-    text-align: right;
+table { /* may need adjusted - when you minimize page, no adjustment is made - tried margin:"auto" but didn't work*/
+    display: inline-table;
+    /*margin: 25px, 50px, 50px, 25px;*/
 }
 
+    table tr:nth-child(2n) { /*2n is 2*0, 2*1, 2*2, 2*3, i.e. every other (even)*/
+        background-color: lightgray;
+    }
+    table tr td:first-child{
+        background-color: white;
+    }
+.best-seller {
+    color: red;
+    font-size: 12px;
+}
+img.toy-image{ /*table class for toy image*/
+    height: 125px;
+}
+img.toy-rating{ /*table class for toy-rating image*/
+    height: 15px;
+    width: 75px;
+}
+.toy-dept{
+    font-size: larger;
+}
+
+
 .tile {
-    display: inline;
-    float: left;
+    display: inline-block;
     margin: 25px 50px 25px 50px;
+}
+img.toy-image-tile {
+    height: 150px;
 }
 
 h1 {
@@ -79,7 +104,7 @@ h2 {
 
 h3 {
     color: red;
-    font-size: small;
+    font-size: large;
 }
 
 h3::before {

@@ -25,38 +25,40 @@
     </nav>
     <section id="main-content">
 
-        <h2 class="center">Toy Department</h2>
+        <h2 class="toy-dept">Toy Department</h2>
 
-        @foreach (Product product in Model)
+        @foreach (var product in Model)
         {
-            <div class="tile">
+            var toyImage = "/Content/images/" + product.ImageName;
+            var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png";
 
+
+            <div class="tile">
                 <h1>
+                    <img class="toy-image-tile" src=@toyImage /> <br />
                     @product.Name
                     @if (product.IsTopSeller)
                     {
-                        <p1>BEST SELLER!</p1>
-                    }<br />
+                        <p1 class="best-seller">BEST SELLER!</p1>
+                    }
                 </h1>
                 <h2>by @product.Manufacturer <br /></h2>
-                <h3>@product.Price <br /></h3>
-                <h4><b>Weight </b> <p2>@product.WeightIbLbs lbs </p2><br /></h4>
+                <h3>@product.Price </h3>
+                <h4><b>Weight </b> <p2>@product.WeightInLbs lbs </p2><br /></h4>
                 <h5>
                     @if (product.AverageRating == 1)
-                    {<img src="1-star.png" alt="1 Star"/>}
+                    {<img class="toy-rating" src=@starImage />}
                     else if (product.AverageRating == 2)
-                    {<img src="2-star.png" alt="2 Star" /> }
+                    {<img class="toy-rating" src=@starImage /> }
                     else if (product.AverageRating == 3)
-                    {<img src="3-star.png" alt="3 Star" /> }
+                    {<img class="toy-rating" src=@starImage /> }
                     else if (product.AverageRating == 4)
-                    {<img src="4-star.png" alt="4 Star" /> }
+                    {<img class="toy-rating" src=@starImage /> }
                     else if (product.AverageRating == 5)
-                    {<img src="5-star.png" alt="5 Star" /> }
-                    <br />
+                    {<img class="toy-rating" src=@starImage />}
                 </h5>
             </div>
         }
-
 
     </section>
 </body>

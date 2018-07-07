@@ -23,18 +23,26 @@
             <li><a href="#">Tile View</a></li>
         </ul>
     </nav>    <section id="main-content">
-        <h2 class="center">Toy Department</h2>
-        <table class="center">
-            <tr><td>ImageName</td></tr>
-            <tr><td>Name</td></tr>
-            <tr><td>IsTopSeller</td></tr>
-            <tr><td>Manufacturer</td></tr>
-            <tr><td>Price</td></tr>
-            <tr><td>WeightIbLbs</td></tr>
-            <tr><td>AverageRating</td></tr>
-        </table>
+        <h2 class="toy-dept">Toy Department</h2>
         <table>
             <tr>
+                <td></td>
+
+                @foreach (var productImage in Model)
+                {
+                    var toyImage = "/Content/images/" + productImage.ImageName;
+                    <td>
+                        <img class="toy-image" src=@toyImage />
+
+                        @if (productImage.IsTopSeller)
+                        {
+                            <br /><span class="best-seller">BEST SELLER!</span>
+                        }
+                    </td>
+                }
+            <tr>
+                <td>Name</td>
+
                 @foreach (Product product in Model)
                 {
                     <td>@product.Name</td>
@@ -42,51 +50,36 @@
             </tr>
 
             <tr>
-                @foreach (Product product in Model)
+                <td>Rating</td>
+                @foreach (var product in Model)
                 {
-                    <td>@product.IsTopSeller</td>
+                    var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png";
+                    <td><img class="toy-rating" src=@starImage /></td>
                 }
             </tr>
             <tr>
+                <td>Mfr</td>
+
                 @foreach (Product product in Model)
                 {
                     <td>@product.Manufacturer</td>
                 }
             </tr>
             <tr>
+                <td>Price</td>
                 @foreach (Product product in Model)
                 {
-                    <td>@product.Price</td>
+                    <td>@product.Price.ToString("C")</td>
                 }
             </tr>
             <tr>
+                <td>wt. (in lbs)</td>
                 @foreach (Product product in Model)
                 {
-                    <td>@product.WeightIbLbs</td>
-                }
-            </tr>
-            <tr>
-                @foreach (Product product in Model)
-                {
-                    <td>@product.AverageRating</td>
+                    <td>@product.WeightInLbs</td>
                 }
             </tr>
         </table>
-
-        @*<table>
-                        @foreach (Product product in Model)
-                {
-                    <tr><td>@product.ImageName</td></tr>
-                    <tr><td>@product.Name</td></tr>
-                    <tr><td>@product.IsTopSeller</td></tr>
-                    <tr><td>@product.Manufacturer</td></tr>
-                    <tr><td>@product.Price</td></tr>
-                    <tr><td>@product.WeightIbLbs</td></tr>
-                    <tr><td>@product.AverageRating</td></tr>
-            }
-
-
-                    </table>*@
     </section>
 </body>
 </html>
