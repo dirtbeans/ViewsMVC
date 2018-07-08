@@ -24,7 +24,8 @@
         </ul>
     </nav>    <section id="main-content">
         <h2 class="toy-dept">Toy Department</h2> @*Overall Code Note!! - is there anyway to put all of this into one foreach loop maybe? this one seems longer, but may be necessary due to table*@
-        <table>
+    <div style="overflow:auto">    
+    <table width="100%">
             <tr>
                 <td></td> @*used to place image one place over to lineup with appropriate details*@
 
@@ -32,7 +33,7 @@
                 {
                     var toyImage = "/Content/images/" + product.ImageName;  @*variable assignment for image file, we could also directly access the file I believe, but this worked*@
                     <td>
-                        <img class="toy-image" src=@toyImage />
+                        <img class="toy-image" src=@toyImage alt="Selected Toy Image"/>
 
                         @if (product.IsTopSeller)
                         {
@@ -69,7 +70,7 @@
                 <td>Price</td>
                 @foreach (Product product in Model)
                 {
-                    <td>@product.Price.ToString("C")</td>
+                    <td style="color:red"><b>@product.Price.ToString("C")</b></td>
                 }
             </tr>
             <tr>
@@ -79,7 +80,7 @@
                     <td>@product.WeightInLbs</td>
                 }
             </tr>
-        </table>
+        </table></div>
     </section>
 </body>
 </html>

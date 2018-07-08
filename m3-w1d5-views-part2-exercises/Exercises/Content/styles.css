@@ -60,12 +60,10 @@ section {
 }
 
 /* Individual Page Styles */
-table { /* may need adjusted - when you minimize page, no adjustment is made - tried margin:"auto" but didn't work*/
-    display: inline-table;
-    /*margin: 25px, 50px, 50px, 25px;*/
+table{
+    table-layout: fixed;
+    width: 100%;
 }
-
-
 .img-left {
     float: left;
     height: 100px;
@@ -120,10 +118,10 @@ h2 {
     font-size: small;
 }
 
-h3 {
+/*h3 {
     color: red;
     font-size: large;
-}
+}*/
 
 /*h3::before {  this was affecting another <h3> class, so I knocked it out by doing product.Price.ToString("C")
         content: "$";
@@ -141,4 +139,3 @@ p1 {
 p2 {
     font-weight: normal;
 }
-

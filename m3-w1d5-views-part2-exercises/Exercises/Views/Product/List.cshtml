@@ -27,28 +27,28 @@
     <section id="main-content">
         <h2 class="toy-dept">Toy Department</h2>
         @foreach (Product product in Model)
-    {
-        var toyImage = "/Content/images/" + product.ImageName;@*assign variable to store image from file from absolute path m3-w1d5-views-part2-exercises\Exercises\Content\images *@
-    var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png"; @*assign variable to store image from file, rounding average rating to produce int to assign to file to produce star value*@
+        {
+            var toyImage = "/Content/images/" + product.ImageName;@*assign variable to store image from file from absolute path m3-w1d5-views-part2-exercises\Exercises\Content\images *@
+            var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png"; @*assign variable to store image from file, rounding average rating to produce int to assign to file to produce star value*@
 
-    <h3 class="list-head">
-        <img class="img-left" src=@toyImage />
+            <h3 class="list-head">
+                <img class="img-left" src=@toyImage />
 
-        @product.Name
+                @product.Name
 
-        @if (product.IsTopSeller)
-    {
-        <span class="best-seller">BEST SELLER!</span> @*set Best Seller next to prod name when value true*@
-}
+                @if (product.IsTopSeller)
+                {
+                    <span class="best-seller">BEST SELLER!</span> @*set Best Seller next to prod name when value true*@
+                }
 
-    </h3>
-    <ul class="style">
-        <li detail="product:@product;">by @product.Manufacturer</li>  @*we got the "detail product:@product" stuff from lecture code, but I don't think it applies fully until day 2*@
-        <li detail="product:@product;">@product.Price.ToString("C")</li>
-        <li detail="product:@product;"> <b>Weight</b> @product.WeightInLbs lbs</li>
-        <li> <img class="img-star-resize" src="@starImage" /> </li> @*produces image from star variable assignment*@
-    </ul>
-}
+            </h3>
+            <ul class="style">
+                <li detail="product:@product;">by @product.Manufacturer</li>  @*we got the "detail product:@product" stuff from lecture code, but I don't think it applies fully until day 2*@
+                <li detail="product:@product;">@product.Price.ToString("C")</li>
+                <li detail="product:@product;"> <b>Weight</b> @product.WeightInLbs lbs</li>
+                <li> <img class="img-star-resize" src="@starImage" /> </li> @*produces image from star variable assignment*@
+            </ul>
+        }
     </section>
 </body>
 </html>

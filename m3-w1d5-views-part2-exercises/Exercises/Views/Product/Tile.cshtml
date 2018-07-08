@@ -42,20 +42,30 @@
                     }
                 </h1>
                 <h2>by @product.Manufacturer <br /></h2>
-                <h3>@product.Price.ToString("C") </h3>
-                <h4><b>Weight </b> <p2>@product.WeightInLbs lbs </p2><br /></h4>
-                <h5>
-                    @if (product.AverageRating == 1)
-                    {<img class="toy-rating" src=@starImage />}      @*if statement is only returning rating of five, defaulting to last value. I tried a while loop with breaks for each and that did the same thing, so we can try to tackle this Sunday?*@
-                    else if (product.AverageRating == 2)
-                    {<img class="toy-rating" src=@starImage /> }
-                    else if (product.AverageRating == 3)
-                    {<img class="toy-rating" src=@starImage /> }
-                    else if (product.AverageRating == 4)
-                    {<img class="toy-rating" src=@starImage /> }
-                    else if (product.AverageRating == 5)
-                    {<img class="toy-rating" src=@starImage />}
-                </h5>
+                <h3>
+                    <p1>@product.Price.ToString("C") <br /></p1>
+
+                    <b>Weight </b> <p2>@product.WeightInLbs lbs <br /> </p2>
+
+                    @foreach (Product productRating in Model)
+                    {
+
+                        var rating = productRating.AverageRating;
+
+                        if (rating == 1)
+                        {<img class="toy-rating" src=@starImage />} @*if statement is only returning rating of five, defaulting to last value. I tried a while loop with breaks for each and that did the same thing, so we can try to tackle this Sunday?*@
+                        else if (rating == 2)
+                        {<img class="toy-rating" src=@starImage />}
+                        else if (rating == 3)
+                        {<img class="toy-rating" src=@starImage />}
+                        else if (rating == 4)
+                        {<img class="toy-rating" src=@starImage />}
+                        else if (rating == 5)
+                        {<img class="toy-rating" src=@starImage />}
+                    }
+
+                </h3>
+                <h6></h6>
             </div>
         }
 
