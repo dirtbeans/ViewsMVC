@@ -32,41 +32,54 @@
             var toyImage = "/Content/images/" + product.ImageName;
             var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png";
 
-            <div class="tile">
-                <h1>
-                    <img class="toy-image-tile" src=@toyImage /> <br />
-                    @product.Name
-                    @if (product.IsTopSeller)
-                    {
-                        <p1 class="best-seller">BEST SELLER!</p1>
-                    }
-                </h1>
-                <h2>by @product.Manufacturer <br /></h2>
-                <h3>
-                    <p1>@product.Price.ToString("C") <br /></p1>
+        <div class="tile">
+            <h1>
+                <img class="toy-image-tile" src=@toyImage /> <br />
+                @product.Name
+                @if (product.IsTopSeller)
+                {
+                    <p1 class="best-seller">BEST SELLER!</p1>
+                }<br/>
+            <p3>by @product.Manufacturer <br /></p3>
+            @if (product.RemainingStock < 3)
+            {
+                //<li detail="product:@product;">by @product.RemainingStock</li>
+                if (product.RemainingStock == 2)
+                {
+                    <span class="product-remaining">Only 2 left!</span>
+                }
 
-                    <b>Weight </b> <p2>@product.WeightInLbs lbs <br /> </p2>
+                else if (product.RemainingStock == 1)
+                {
+                    <span class="product-remaining">Only 1 Left!</span>
+                }
+            }
+            </h1>
+            <h3>
+                <p1>@product.Price.ToString("C") <br /></p1>
 
-                    @foreach (Product productRating in Model)
-                    {
+                <b>Weight </b> <p3>@product.WeightInLbs lbs <br /> </p3>
 
-                        var rating = productRating.AverageRating;
+                @foreach (Product productRating in Model)
+                {
 
-                        if (rating == 1)
-                        {<img class="toy-rating" src=@starImage />} @*if statement is only returning rating of five, defaulting to last value. I tried a while loop with breaks for each and that did the same thing, so we can try to tackle this Sunday?*@
-                        else if (rating == 2)
-                        {<img class="toy-rating" src=@starImage />}
-                        else if (rating == 3)
-                        {<img class="toy-rating" src=@starImage />}
-                        else if (rating == 4)
-                        {<img class="toy-rating" src=@starImage />}
-                        else if (rating == 5)
-                        {<img class="toy-rating" src=@starImage />}
-                    }
+                    var rating = productRating.AverageRating;
 
-                </h3>
-                <h6></h6>
-            </div>
+                    if (rating == 1)
+                    {<img class="toy-rating" src=@starImage />} @*if statement is only returning rating of five, defaulting to last value. I tried a while loop with breaks for each and that did the same thing, so we can try to tackle this Sunday?*@
+                    else if (rating == 2)
+                    {<img class="toy-rating" src=@starImage />}
+                    else if (rating == 3)
+                    {<img class="toy-rating" src=@starImage />}
+                    else if (rating == 4)
+                    {<img class="toy-rating" src=@starImage />}
+                    else if (rating == 5)
+                    {<img class="toy-rating" src=@starImage />}
+                }
+
+            </h3>
+            <h6></h6>
+        </div>
         }
 
     </section>
