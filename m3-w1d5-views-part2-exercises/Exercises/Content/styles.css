@@ -16,7 +16,6 @@ header {
     padding: 10px 10px;
 }
 
-
 nav {
     background-color: #8DC63F;
     margin-bottom: 20px;
@@ -59,6 +58,7 @@ section {
     border-radius: 7px;
 }
 
+
 /* Individual Page Styles */
 table { /* may need adjusted - when you minimize page, no adjustment is made - tried margin:"auto" but didn't work*/
     display: inline-table;
@@ -67,14 +67,23 @@ table { /* may need adjusted - when you minimize page, no adjustment is made - t
 
 
 .img-left {
+    position: relative;
     float: left;
+    width: 125px;
     height: 100px;
+    margin: 10px 20px 10px 20px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
 .img-star-resize {
     height: 15px;
     width: 75px;
 }
-.list-head{
+
+.list-head {
     font-size: medium;
     color: black;
 }
@@ -83,24 +92,29 @@ table { /* may need adjusted - when you minimize page, no adjustment is made - t
     list-style-type: none;
 }
 
-    table tr:nth-child(2n) { /*2n is 2*0, 2*1, 2*2, 2*3, i.e. every other (even)*/
-        background-color: lightgray;
-    }
-    table tr td:first-child{
-        background-color: white;
-    }
+table tr:nth-child(2n) { /*2n is 2*0, 2*1, 2*2, 2*3, i.e. every other (even)*/
+    background-color: lightgray;
+}
+
+table tr td:first-child {
+    background-color: white;
+}
+
 .best-seller {
     color: red;
     font-size: 12px;
 }
-img.toy-image{ /*table class for toy image*/
+
+img.toy-image { /*table class for toy image*/
     height: 125px;
 }
-img.toy-rating{ /*table class for toy-rating image*/
+
+img.toy-rating { /*table class for toy-rating image*/
     height: 15px;
     width: 75px;
 }
-.toy-dept{
+
+.toy-dept {
     font-size: 30px;
 }
 
@@ -109,36 +123,42 @@ img.toy-rating{ /*table class for toy-rating image*/
     display: inline-block;
     margin: 25px 50px 25px 50px;
 }
+
 img.toy-image-tile {
     height: 150px;
 }
 
 h1 {
     font-size: medium;
+   
 }
+
 h2 {
     font-size: small;
 }
 
 h3 {
-    color: red;
-    font-size: large;
+    
 }
 
-/*h3::before {  this was affecting another <h3> class, so I knocked it out by doing product.Price.ToString("C")
-        content: "$";
-}*/
 h4 {
+}
 
-}
 h5 {
-   
 }
+
 p1 {
-    color: red;
+    color: darkred;
     font-size: small;
 }
+
 p2 {
     font-weight: normal;
 }
+h7 {
+    text-align: left;
+    
+}
+
+
 
