@@ -42,7 +42,7 @@
                     </td>
                 }
             <tr>
-                <td>Name</td>
+                <td><b>Name</b></td>
 
                 @foreach (Product product in Model)
                 {
@@ -51,7 +51,7 @@
             </tr>
 
             <tr>
-                <td>Rating</td>
+                <td><b>Rating</b></td>
                 @foreach (Product product in Model)
                 {
                     var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png";
@@ -59,7 +59,7 @@
                 }
             </tr>
             <tr>
-                <td>Mfr</td>
+                <td><b>Mfr</b></td>
 
                 @foreach (Product product in Model)
                 {
@@ -67,14 +67,14 @@
                 }
             </tr>
             <tr>
-                <td>Price</td>
+                <td><b>Price</b></td>
                 @foreach (Product product in Model)
                 {
-                    <td style="color:red"><b>@product.Price.ToString("C")</b></td>
+                    <td style="color:darkred"><b>@product.Price.ToString("C")</b></td>
                 }
             </tr>
             <tr>
-                <td>wt. (in lbs)</td>
+                <td><b>wt. (in lbs)</b></td>
                 @foreach (Product product in Model)
                 {
                     <td>@product.WeightInLbs</td>

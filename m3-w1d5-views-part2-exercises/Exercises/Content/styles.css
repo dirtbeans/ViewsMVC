@@ -134,24 +134,27 @@ h2 {
     font-size: small;
 }
 
-h3 {
-}
-
-h4 {
-}
-
-h5 {
-}
 
 p1 {
     color: darkred;
-    font-size: small;
+    font-size: medium;
+    font-weight: bold;
+    font-family: Calibri;
 }
 
 p2 {
     font-weight: normal;
 }
+p3 {
+    color: grey;
+    font-weight: normal;
+}
 
 h7 {
     text-align: left;
+}
+.product-remaining{
+    color:cornflowerblue;
+    font-weight: bold;
+
 }
