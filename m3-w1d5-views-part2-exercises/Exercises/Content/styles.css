@@ -60,10 +60,11 @@ section {
 
 
 /* Individual Page Styles */
-table{
+table {
     table-layout: fixed;
     width: 100%;
 }
+
 .img-left {
     position: relative;
     float: left;
@@ -107,7 +108,7 @@ img.toy-image { /*table class for toy image*/
     height: 125px;
 }
 
-img.toy-image-desc{
+img.toy-image-desc {
     float: left;
     height: 200px;
 }
@@ -151,26 +152,29 @@ p1 {
 p2 {
     font-weight: normal;
 }
+
 p3 {
     color: grey;
     font-weight: normal;
 }
-p4{
+
+p4 {
     font-weight: 400;
 }
 
 h7 {
     text-align: left;
 }
-.product-remaining{
-    color:cornflowerblue;
-    font-weight: bold;
 
+.product-remaining {
+    color: cornflowerblue;
+    font-weight: bold;
 }
 nav {
     width: 25%;
     margin: auto;
 }
+
 
 
 
