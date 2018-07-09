@@ -1,16 +1,47 @@
 ﻿@using Exercises.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @model Product
 
-<!DOCTYPE html>
+@{
+    var toyImage = "/Content/images/" + Model.ImageName;
+    var starImage = "/Content/images/" + Math.Round(Model.AverageRating, 0) + "-star.png";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-        @Model.Name
-    </div>
-</body>
-</html>
+<div style="text-align:center">
+<img src=@toyImage /></div>
+    @*<br />*@
+<div style="text-align:center">
+    @Model.Name
+    @if (Model.IsTopSeller)
+    {
+        <p1 class="best-seller">BEST SELLER!</p1>
+    }<br />
+    <p3>by @Model.Manufacturer <br /></p3>
+    <img class="img-star-resize" src=@starImage /><br />
+
+    @if (Model.RemainingStock < 3)
+    {
+        //<li detail="product:@product;">by @product.RemainingStock</li>
+        if (Model.RemainingStock == 2)
+        {
+            <span class="product-remaining">Only 2 left!</span>
+        }
+
+        else if (Model.RemainingStock == 1)
+        {
+            <span class="product-remaining">Only 1 Left!</span>
+        }
+    }
+
+    <p1>Price: @Model.Price.ToString("C") <br /></p1>
+
+    <b>Weight </b> <p3>@Model.WeightInLbs lbs <br /> </p3>
+
+    <p4><b>Description: </b> @Model.Description </p4>
+</div>
+
+
+

@@ -1,6 +1,6 @@
 ﻿@using Exercises.Models
 @{
-    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model List<Product>
 
@@ -13,16 +13,7 @@
     <link rel="stylesheet" href="~/Content/styles.css" />
 </head>
 <body>
-    <header>
-        <h1>ASP.NET MVC Exercises - Views Part 2: Models</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">List View</a></li>
-            <li><a href="#">Table View</a></li>
-            <li><a href="#">Tile View</a></li>
-        </ul>
-    </nav>    <section id="main-content">
+   <section id="main-content">
         <h2 class="toy-dept">Toy Department</h2> @*Overall Code Note!! - is there anyway to put all of this into one foreach loop maybe? this one seems longer, but may be necessary due to table*@
     <div style="overflow:auto">    
     <table width="100%">
@@ -32,14 +23,16 @@
                 @foreach (Product product in Model)
                 {
                     var toyImage = "/Content/images/" + product.ImageName;  @*variable assignment for image file, we could also directly access the file I believe, but this worked*@
-                    <td>
-                        <img class="toy-image" src=@toyImage alt="Selected Toy Image"/>
+                <td>
+                    <a href="@Url.Action("Detail", "Product", new { id = product.ProductId})">
+                        <img class="toy-image" src=@toyImage />
+                    </a>
 
-                        @if (product.IsTopSeller)
-                        {
-                            <br /><span class="best-seller">BEST SELLER!</span> 
-                        }
-                    </td>
+                    @if (product.IsTopSeller)
+                    {
+                        <br /><span class="best-seller">BEST SELLER!</span>
+                    }
+                </td>
                 }
             <tr>
                 <td><b>Name</b></td>

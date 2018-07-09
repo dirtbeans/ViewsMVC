@@ -1,6 +1,6 @@
 ﻿@using Exercises.Models
 @{
-    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model List<Product>
@@ -14,32 +14,20 @@
     <link rel="stylesheet" href="~/Content/styles.css" />
 </head>
 <body>
-    <header>
-        <h1>ASP.NET MVC Exercises - Views Part 2: Models</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">List View</a></li>
-            <li><a href="#">Table View</a></li>
-            <li><a href="#">Tile View</a></li>
-        </ul>
-    </nav>
     <section>
-
-
-
-
 
         <b> <p6 class="toy-dept">Toy Department</p6> </b>
         @foreach (Product product in Model)
         {
-            var toyImage = "/Content/images/" + product.ImageName;@*assign variable to store image from file from absolute path m3-w1d5-views-part2-exercises\Exercises\Content\images *@
+            var toyImage = "/Content/images/" + product.ImageName; @*assign variable to store image from file from absolute path m3-w1d5-views-part2-exercises\Exercises\Content\images *@
             var starImage = "/Content/images/" + Math.Round(product.AverageRating, 0) + "-star.png"; @*assign variable to store image from file, rounding average rating to produce int to assign to file to produce star value*@
 
 
-            <h6 class="list-head">
+        <h6 class="list-head">
+            <a href="@Url.Action("Detail", "Product", new { id = product.ProductId})">
                 <img class="img-left" src=@toyImage />
-            </h6>
+            </a>
+        </h6>
             <h7>
                 <ul class="style">
 
@@ -49,10 +37,6 @@
                     {
                         <span class="best-seller"><b>BEST SELLER!</b></span> @*set Best Seller next to prod name when value true*@
                     }
-
-
-
-
 
 
                     <p3><li detail="product:@product;">by @product.Manufacturer</li> </p3> @*we got the "detail product:@product" stuff from lecture code, but I don't think it applies fully until day 2*@
@@ -70,7 +54,7 @@
                         }
                     }
                     <p1><b> <li detail="product:@product;">@product.Price.ToString("C")</li></b> </p1>
-                    <li detail="product:@product;"> <b>Weight</b><p3> @product.WeightInLbs lbs<</li>
+                    <li detail="product:@product;"> <b>Weight</b><p3> @product.WeightInLbs lbs</li>
                     <li> <img class="img-star-resize" src="@starImage" /> </li> @*produces image from star variable assignment*@
 
 
@@ -86,3 +70,6 @@
 </body>
 </html>
 
+@*<a href="@Url.Action("Detail", "Product", new { id = product.ProductId})">
+    <img class="product-image" src=@toyImage />
+</a>*@

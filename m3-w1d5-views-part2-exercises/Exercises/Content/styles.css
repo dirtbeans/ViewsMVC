@@ -107,6 +107,12 @@ img.toy-image { /*table class for toy image*/
     height: 125px;
 }
 
+img.toy-image-desc{
+    float: left;
+    height: 200px;
+}
+
+
 img.toy-rating { /*table class for toy-rating image*/
     height: 15px;
     width: 75px;
@@ -149,6 +155,9 @@ p3 {
     color: grey;
     font-weight: normal;
 }
+p4{
+    font-weight: 400;
+}
 
 h7 {
     text-align: left;
@@ -158,3 +167,4 @@ h7 {
     font-weight: bold;
 
 }
+

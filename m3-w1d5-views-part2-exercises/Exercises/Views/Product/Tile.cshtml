@@ -1,6 +1,6 @@
 ﻿@using Exercises.Models
 @{
-    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model List<Product>
@@ -13,16 +13,6 @@
     <link rel="stylesheet" href="~/Content/styles.css" />
 </head>
 <body>
-    <header>
-        <h1>ASP.NET MVC Exercises - Views Part 2: Models</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">List View</a></li>
-            <li><a href="#">Table View</a></li>
-            <li><a href="#">Tile View</a></li>
-        </ul>
-    </nav>
     <section id="main-content">
 
         <h2 class="toy-dept">Toy Department</h2>
@@ -34,33 +24,31 @@
 
         <div class="tile">
             <h1>
-                <img class="toy-image-tile" src=@toyImage /> <br />
+                <a href="@Url.Action("Detail", "Product", new { id = product.ProductId})">
+                    <img class="toy-image-tile" src=@toyImage />
+                </a> <br />
                 @product.Name
                 @if (product.IsTopSeller)
                 {
                     <p1 class="best-seller">BEST SELLER!</p1>
-                }<br/>
-            <p3>by @product.Manufacturer <br /></p3>
-            @if (product.RemainingStock < 3)
-            {
-                //<li detail="product:@product;">by @product.RemainingStock</li>
-                if (product.RemainingStock == 2)
+                }<br />
+                <p3>by @product.Manufacturer <br /></p3>
+                @if (product.RemainingStock < 3)
                 {
-                    <span class="product-remaining">Only 2 left!</span>
-                }
+                    //<li detail="product:@product;">by @product.RemainingStock</li>
+                    if (product.RemainingStock == 2)
+                    {
+                        <span class="product-remaining">Only 2 left!</span>
+                    }
 
-<<<<<<< HEAD
-                    <p2><b>Weight</b> @product.WeightInLbs lbs <br /> </p2>
-=======
-                else if (product.RemainingStock == 1)
-                {
-                    <span class="product-remaining">Only 1 Left!</span>
+                    else if (product.RemainingStock == 1)
+                    {
+                        <span class="product-remaining">Only 1 Left!</span>
+                    }
                 }
-            }
             </h1>
             <h3>
                 <p1>@product.Price.ToString("C") <br /></p1>
->>>>>>> fa92dc7390c63508f4f91c32943a182d91430bd9
 
                 <b>Weight </b> <p3>@product.WeightInLbs lbs <br /> </p3>
 
