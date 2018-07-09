@@ -13,19 +13,18 @@
             <h1>ASP.NET MVC Exercises - Views Part 3: Models</h1>
         </header>
     </div>
-        <nav>
-            <ul>
-                <li>@Html.ActionLink("List View", "List", "Product")</li>
-                <li>@Html.ActionLink("Table View", "Table", "Product")</li>
-                <li>@Html.ActionLink("Tile View", "Tile", "Product")</li>
-            </ul>
+    <nav>
+        <ul>
+            <li>@Html.ActionLink("List View", "List", "Product")</li>
+            <li>@Html.ActionLink("Table View", "Table", "Product")</li>
+            <li>@Html.ActionLink("Tile View", "Tile", "Product")</li>
+        </ul>
         </nav>
-
 
         <section id="main-content">
 
             @*
-                Placeholder to load in the content of the individual page view.
+            Placeholder to load in the content of the individual page view.
             *@
             @RenderBody()
 
